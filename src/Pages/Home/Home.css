@@ -1,0 +1,14 @@
+.home-portion {
+  color: white;
+  margin: 100px;
+  /* padding: 100px; */
+}
+.home-portion h1 {
+  font-size: 50px;
+}
+.home-portion img {
+  width: 60%;
+  height: 100%;
+
+  margin: auto;
+}
