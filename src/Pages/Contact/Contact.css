@@ -1,0 +1,23 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* align-items: center; */
+  justify-content: space-between;
+  padding: 50px;
+
+  box-shadow: 4px 4px #2535339f;
+}
+
+.contact-info {
+  width: 80%;
+  height: auto;
+  margin: auto;
+
+  box-shadow: 4px 4px #2535339f;
+}
+
+.contact-box {
+  height: 100%;
+  padding: 10px;
+}
