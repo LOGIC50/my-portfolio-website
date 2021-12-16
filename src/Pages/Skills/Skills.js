@@ -1,79 +1,159 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import { Container } from '@mui/material';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import { Container } from "@mui/material";
+import "./Skills.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const images = [
-    {
-        img: 'https://i.ibb.co/M53XdL3/1.png'
-    },
-    {
-        img: 'https://i.ibb.co/YLKQwNQ/2.png'
-    },
-    {
-        img: 'https://i.ibb.co/tbHRjz3/3.jpg'
-    },
-    {
-        img: 'https://i.ibb.co/cNnTFdj/4.png'
-    },
-    {
-        img: 'https://i.ibb.co/dLxjKyj/5.jpg'
-    },
-    {
-        img: 'https://i.ibb.co/6mFB9wt/6.png'
-    },
-    {
-        img: 'https://i.ibb.co/4K9XpTs/7.png'
-    },
-    {
-        img: 'https://i.ibb.co/CHtCVy5/8.png'
-    },
-    {
-        img: 'https://i.ibb.co/9q4Dqfk/9.jpg'
-    },
-    {
-        img: 'https://i.ibb.co/nwxVRsv/10.jpg'
-    },
-    {
-        img: 'https://i.ibb.co/7Xhhgp7/11.jpg'
-    },
-    {
-        img: 'https://i.ibb.co/7Xhhgp7/11.jpg'
-    }
-]
+  {
+    name: "HTML",
+    img: "https://i.ibb.co/M53XdL3/1.png",
+  },
+  {
+    name: "CSS",
+    img: "https://i.ibb.co/YLKQwNQ/2.png",
+  },
+  {
+    name: "JavaScript",
+    img: "https://i.ibb.co/tbHRjz3/3.jpg",
+  },
+  {
+    name: "ReactJS",
+    img: "https://i.ibb.co/cNnTFdj/4.png",
+  },
+  {
+    name: "Bootstrap",
+    img: "https://i.ibb.co/dLxjKyj/5.jpg",
+  },
+  {
+    name: "React Bootstrap",
+    img: "https://i.ibb.co/6mFB9wt/6.png",
+  },
+  {
+    name: "Material-UI",
+    img: "https://i.ibb.co/4K9XpTs/7.png",
+  },
+  {
+    name: "NodeJS",
+    img: "https://i.ibb.co/CHtCVy5/8.png",
+  },
+  {
+    name: "MongoDB",
+    img: "https://i.ibb.co/9q4Dqfk/9.jpg",
+  },
+  {
+    name: "ExpressJS",
+    img: "https://i.ibb.co/nwxVRsv/10.jpg",
+  },
+  {
+    name: "Tailwind CSS",
+    img: "https://i.ibb.co/7Xhhgp7/11.jpg",
+  },
+  // {
+  //     name: 'Tailwind CSS',
+  //     img: 'https://i.ibb.co/7Xhhgp7/11.jpg'
+  // }
+];
+
+const tools = [
+  {
+    name: "Git",
+    img: "https://i.ibb.co/VTPdnxH/12.jpg",
+  },
+  {
+    name: "Netlify",
+    img: "https://i.ibb.co/WF4XjHB/13.png",
+  },
+  {
+    name: "Heroku",
+    img: "https://i.ibb.co/X77Mwhj/14.jpg",
+  },
+  {
+    name: "Firebase",
+    img: "https://i.ibb.co/GfZ9dcF/5f34fd1aa2ebfaf2cd548bafeb021c8f.png",
+  },
+  {
+    name: "VS Code",
+    img: "https://i.ibb.co/Sd8xQdG/vscode.png",
+  },
+];
 
 const Skills = () => {
-    return (
-        <Container>
-            <h1>Skills</h1>
-            <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-          {
-              images.map(image => <Grid style={{'border': '1px solid aquamarine', 'margin': '20px','alignItems': 'center'}} item xs={6} md={3}>
-                <img style={{'width': 'auto', 'margin': '20px'}} src={image.img} alt="" />
-              </Grid>)
-          }
-        
-        
-      </Grid>
-    </Box>
-        </Container>
-    );
+  React.useEffect(() => {
+    AOS.init();
+  });
+  return (
+    <div className="project-container">
+      <Container style={{ margin: "auto" }} className="skills-portion">
+        <h1
+          style={{
+            textAlign: "center",
+            marginBottom: "50px",
+            paddingTop: "30px",
+            fontSize: "50px",
+          }}
+          data-aos="zoom-in"
+          data-aos-duration="2000"
+        >
+          Professional{" "}
+          <span style={{ color: "aquamarine", textAlign: "center" }}>
+            Skillset
+          </span>
+        </h1>
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container spacing={6} className="skills-image">
+            {images.map((image) => (
+              <Grid item xs={6} md={2}>
+                <div
+                  className="skills-box container-img "
+                  style={{ paddingLeft: "0px" }}
+                  data-aos="zoom-out"
+                  data-aos-duration="1500"
+                >
+                  <img class="image" src={image.img} alt="" />
+                  <p className="title"> {image.name}</p>
+                </div>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+        <h1
+          style={{ textAlign: "center", margin: "50px", fontSize: "50px" }}
+          data-aos="zoom-in"
+          data-aos-duration="2000"
+        >
+          {" "}
+          <span style={{ color: "aquamarine", textAlign: "center" }}>
+            Tools
+          </span>{" "}
+          I Use{" "}
+        </h1>
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container spacing={6} className="skills-image">
+            {tools.map((image) => (
+              <Grid item xs={6} md={2.4}>
+                <div
+                  className="skills-box container-img "
+                  style={{ paddingLeft: "0px" }}
+                  data-aos="zoom-out"
+                  data-aos-duration="1500"
+                >
+                  <img class="image" src={image.img} alt="" />
+                  <p className="title"> {image.name}</p>
+                </div>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Container>
+    </div>
+  );
 };
 
 export default Skills;
 
-
-
-
-
-
-
-
-
-
-
-
-// https://i.ibb.co/VTPdnxH/12.jpg
-// https://i.ibb.co/WF4XjHB/13.png
-// https://i.ibb.co/X77Mwhj/14.jpg
+//
+//
+//

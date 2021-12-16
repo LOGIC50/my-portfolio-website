@@ -1,69 +1,123 @@
-import React, { useRef } from 'react';
-import emailjs from 'emailjs-com';
-import { Container, Grid } from '@mui/material';
-import { Box } from '@mui/material';
-import './Contact.css';
+import React, { useEffect, useRef } from "react";
+import { Container, Grid } from "@mui/material";
+import { Box } from "@mui/material";
+import "./Contact.css";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+// use emailjs for dynamic contact form
+import emailjs from "emailjs-com";
+
+// use FontAwesome for icon
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPhoneSquareAlt,
+  faEnvelopeSquare,
+  faMapMarkerAlt,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Contact = () => {
-    const form = useRef();
+  useEffect(() => {
+    AOS.init();
+  });
+  const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('gmail', 'template_tt4spyj', form.current, 'user_p0OAJuaEwDb1AvxTcaKEV')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        "gmail",
+        "template_tt4spyj",
+        form.current,
+        "user_p0OAJuaEwDb1AvxTcaKEV"
+      )
+      .then(
+        (result) => {
           console.log(result.text);
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-      });
-      e.target.reset();
+        }
+      );
+    e.target.reset();
   };
-    return (
-        <>
+  return (
+    <div className="contact-container">
+      <Container data-aos="fade-up" data-aos-duration="2000">
         <div>
-            <h1 style={{'text-align': 'center', 'marginTop': '100px'}}>Contact With Me</h1>
+          <h1 style={{ fontSize: "3rem", paddingTop: "20px" }}>CONTACT ME</h1>
+          <hr />
+          <br />
         </div>
-        <div>
-        <Container className='home-portion'>
-            <Box sx={{ flexGrow: 1 }} className='contact-box'>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={6} className='contact-info'>
-          <div>
-          <img src="https://i.ibb.co/TLJbhCQ/1500-0.jpg" alt="" />
-          </div>
-          <div>
-            <h2>Ahmed Jafrul Islam</h2>
-            <h6>Front End Web Developer</h6>
-            <p>I am available for freelance work.</p>
-            <p>If needed, feel free to contact with me</p>
-            <p>Phone: <span>+8801406475446</span></p>
-            <p>Email: <span>ahmedjafrulislam@gmail.com</span></p>
-            <p>FIND WITH ME</p>
-          </div>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <form ref={form} onSubmit={sendEmail} className='contact-form'>
-      <label>Name</label>
-      <input type="text" name="user_name" />
-      <label>PHONE NUMBER</label>
-      <input type="number" name="user_contact" />
-      <label>Email</label>
-      <input type="email" name="user_email" />
-      <label>SUBJECT</label>
-      <input type="text" name="subject" />
-      <label>MESSAGE</label>
-      <textarea name="message" />
-      <input type="submit" value="Send" />
-    </form>
-        </Grid>
-        
-      </Grid>
-    </Box>
-        </Container>
-            
-        </div>
-        </>
-    );
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              <h2>Get In Touch</h2>
+              <form ref={form} onSubmit={sendEmail} className="contact-form">
+                <label>Name</label>
+                <input type="text" name="user_name" />
+                <label>PHONE NUMBER</label>
+                <input type="number" name="user_contact" />
+                <label>Email</label>
+                <input type="email" name="user_email" />
+                <label>SUBJECT</label>
+                <input type="text" name="subject" />
+                <label>MESSAGE</label>
+                <textarea name="message" />
+                <input
+                  style={{ color: "black", fontWeight: "600" }}
+                  type="submit"
+                  value="Send"
+                  className="contact-submit"
+                />
+              </form>
+            </Grid>
+            <Grid item xs={12} md={6} className="contact-info">
+              <div className=" bg-dark contact-div">
+                <div>
+                  <p style={{ fontSize: "4rem" }}>
+                    <FontAwesomeIcon icon={faPhoneSquareAlt}> </FontAwesomeIcon>
+                  </p>
+                </div>
+                <div>
+                  <h6>Phone</h6>
+                  <p>+8801406-475446</p>
+                  <p>+8801567-897542</p>
+                </div>
+              </div>
+              <div className=" bg-dark contact-div">
+                <div>
+                  <p style={{ fontSize: "4rem" }}>
+                    <FontAwesomeIcon icon={faEnvelopeSquare}> </FontAwesomeIcon>
+                  </p>
+                </div>
+                <div className="contact-portion-div">
+                  <h6>Email</h6>
+                  <p>ahmedjafrulislam@gmail.com</p>
+                  <p>logicislam55@gmail.com</p>
+                </div>
+              </div>
+              <div className=" bg-dark contact-div">
+                <div>
+                  <p style={{ fontSize: "4rem" }}>
+                    <FontAwesomeIcon icon={faMapMarkerAlt}> </FontAwesomeIcon>
+                  </p>
+                </div>
+                <div>
+                  <h6>Address</h6>
+                  <p>Kachpur, Sonargaon, Narayanganj</p>
+                  <p>Dhaka, Bangladesh</p>
+                </div>
+              </div>
+              <div></div>
+              <div></div>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
+    </div>
+  );
 };
 export default Contact;
-

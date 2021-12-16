@@ -12,6 +12,8 @@ import Projects from './Pages/Projects/Projects';
 import Blogs from './Pages/Blogs/Blogs';
 import Contact from './Pages/Contact/Contact';
 import Navbar from './Shared/Navbar/Navbar';
+import AboutMe from './Pages/AboutMe/AboutMe';
+import Footer from './Shared/Footer/Footer';
 
 function App() {
   return (
@@ -28,6 +30,9 @@ function App() {
           <Route path="/home">
             <Home />
           </Route>
+          <Route path="/aboutme">
+            <AboutMe />
+          </Route>
           <Route path="/skills">
             <Skills />
           </Route>
@@ -41,6 +46,9 @@ function App() {
             <Contact />
           </Route>
         </Switch>
+      </div>
+      <div>
+        <Footer></Footer>
       </div>
     </Router>
     </div>
