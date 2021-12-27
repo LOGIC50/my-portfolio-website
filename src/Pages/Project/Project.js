@@ -58,7 +58,7 @@ const Project = (props) => {
               <li>{description5}</li>
             </ul>
             <h5>Used Technology: {usedTechnology}</h5>
-            <div className="project-link">
+            {/* <div className="project-link">
               <a href={liveUrl} target="_blank">
                 Live Site
               </a>
@@ -68,7 +68,29 @@ const Project = (props) => {
               <a href={serverSide} target="_blank">
                 Github Server
               </a>
-            </div>
+            </div> */}
+            {serverSide ? (
+              <div className="project-link">
+                <a href={liveUrl} target="_blank">
+                  Live Site
+                </a>
+                <a href={clientSide} target="_blank">
+                  Github Client
+                </a>
+                <a href={serverSide} target="_blank">
+                  Github Server
+                </a>
+              </div>
+            ) : (
+              <div className="project-link">
+                <a href={liveUrl} target="_blank">
+                  Live Site
+                </a>
+                <a href={clientSide} target="_blank">
+                  Github Client
+                </a>
+              </div>
+            )}
           </div>
         </Grid>
       </Grid>
